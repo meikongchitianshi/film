@@ -1,5 +1,9 @@
 
+本地仓库
  1. 自报
 
- 2. 回退版本
-    git reset --hard (后面不加版本号 默认最近一次)
+ 2. 版本
+
+    git add . 上传所有
+
+    git reset --hard (版本号 最近一次HEAD^)
