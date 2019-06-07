@@ -1,0 +1,9 @@
+
+本地仓库
+ 1. 自报
+
+ 2. 版本
+
+    git add . 上传所有
+
+    git reset --hard (版本号 最近一次HEAD^)
