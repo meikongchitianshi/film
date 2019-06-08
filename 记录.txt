@@ -6,16 +6,19 @@
     git config --list
 
     初始 git init
+
  2. 版本
     git add . 上传所有
     git commit -m "这次操作的信息"
     git reset --hard (版本号 最近一次HEAD^)
     版本记录 git log / git reflog
+
  3. 克隆
     git clone （origin/路径）
  4. webstorm
     设置 --> version control  -->github git
     vcs > git > ...
+
  5. .ssh
     生成钥匙  ssh-keygen -t rsa -C "钥匙名"
 
