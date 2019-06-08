@@ -26,6 +26,7 @@ add 到缓存区 --> git commit -m 贴了标签就到工作区
     创建分支 git branch yjq
         转--> git checkout yjq  再修改 add+信息 push
     合并分支 在master下   git merge yjq
+                                --no--ff  可查看历史记录
     删除分支 git push （）
 
     查看操作
