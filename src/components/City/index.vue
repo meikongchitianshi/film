@@ -85,7 +85,80 @@
 
 <script>
     export default {
-        name: "index"
+        name: "index",
+        data(){
+            return {
+                cityList:[],
+                hotList:[]
+            }
+        },
+        methods:{
+            _getCityList(){
+                this.axios.get('/api/cityList').then(res=>{
+
+                    if(res.data.msg==="ok"){
+
+                        var cities = res.data.data.cities;
+                        // console.log(cities);
+                        this.formatCityList(cities)
+                    }
+                })
+            },
+            formatCityList(cities){
+                var cityList = []
+
+                for (var i = 0 ; i < cities.length; i++) {
+                    //截取首字母 大写  排列
+                    var firstLetter = cities[i].py.substring(0,1).toUpperCase();
+                    if(toCom(firstLetter)){ //新添加index
+                        cityList.push({
+                            index:firstLetter,
+                            list:[{
+                                nm:cities[i].nm,
+                                id:cities[i].id
+                            }]
+                        });
+                    }else{ //重复 .. 就累加 list:[nm + id]
+                        for (var j = 0; j < cityList.length; j++) {
+                           if(cityList[j].index === firstLetter){
+                               cityList[j].list.push({
+                                   nm:cities[i].nm,
+                                   id:cities[i].id
+                               })
+                           }
+                        }
+                    }
+                }
+
+                //2.排序
+                cityList.sort((n1,n2)=>{
+                    if(n1.index > n2.index){
+                        return 1;
+                    }else if(n1.index < n2.index){
+                        return -1;
+                    }else {
+                        return 0
+                    }
+
+                })
+
+
+                function toCom(firstLetter){
+                    for (var i = 0; i < cityList.length; i++) {
+                        if( cityList[i].index === firstLetter ){
+                            return false;
+                        }
+                    }
+                    return true
+                }
+
+                console.log(cityList);
+            }
+        },
+        created(){
+
+            this._getCityList()
+        }
     }
 </script>
 
