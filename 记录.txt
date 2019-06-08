@@ -23,10 +23,10 @@ add 到缓存区 --> git commit -m 贴了标签就到工作区
 
  5. .ssh
     生成钥匙  ssh-keygen -t rsa -C "钥匙名"
-
     创建分支 git branch yjq
         转--> git checkout yjq  再修改 add+信息 push
-
     合并分支 在master下   git merge yjq
-
     删除分支 git push （）
+
+    查看操作
+        git status
