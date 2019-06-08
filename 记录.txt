@@ -13,6 +13,8 @@
     git reset --hard (版本号 最近一次HEAD^)
     版本记录 git log / git reflog
 
+add 到缓存区 --> git commit -m 贴了标签就到工作区
+
  3. 克隆
     git clone （origin/路径）
  4. webstorm
